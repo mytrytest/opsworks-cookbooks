@@ -5,6 +5,7 @@ Chef::Log.info(node[:deploy])
 node[:deploy].each do |current_path, deploy|
   Chef::Log.info("npm start --prefix #{deploy[:current_path]}");
 #   Remove this tag comment in when we are going to user npm start.
+  execute("sudo fuser -k 4000/tcp")
   execute("sudo npm start --prefix #{deploy[:current_path]} &")
 #   Chef::Log.info("sudo node #{deploy[:current_path]}/server.js &")
 #   execute("sudo node #{deploy[:current_path]}/server.js &")

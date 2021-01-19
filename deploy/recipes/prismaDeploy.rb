@@ -31,7 +31,7 @@ node[:deploy].each do |current_path, deploy, environment_variables|
 		 		  sleep(10)
 		   else
 		      Chef::Log.info("start prisma deploy")
-	        execute("cd #{deploy[:current_path]} && sudo prisma deploy")
+	        execute("cd #{deploy[:current_path]} && sudo prisma1 deploy")
 	     end
 	 else	
 		Chef::Log.info("no current directory")     
